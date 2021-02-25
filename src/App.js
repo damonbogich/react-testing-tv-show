@@ -20,6 +20,9 @@ export default function App() {
       setShow(res.data)
       setSeasons(formatSeasons(res.data._embedded.episodes));
     })
+    .catch(err => {
+      console.log(err)
+    })
   }, []);
 
   const handleSelect = e => {
@@ -29,6 +32,7 @@ export default function App() {
   if (!show) {
     return <h2>Fetching data...</h2>;
   }
+  console.log(episodes,'epidsode');
 
   return (
     <div className="App">
